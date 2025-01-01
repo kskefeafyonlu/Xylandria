@@ -1,16 +1,26 @@
 using UnityEngine;
 
-public class UI_CharacterSocket : MonoBehaviour
+namespace _Game.Battle
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class UI_CharacterSocket : MonoBehaviour
     {
-        
-    }
+        public Character.Character Character;
+    
+        public void SetCharacter(Character.Character character)
+        {
+            Character = character;
+        }
+    
+        public Character.Character RemoveCharacter()
+        {
+            Character.Character character = Character;
+            Character = null;
+            return character;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public bool IsOccupied()
+        {
+            return Character != null;
+        }
     }
 }

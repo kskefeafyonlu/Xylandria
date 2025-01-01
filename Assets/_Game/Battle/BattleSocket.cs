@@ -1,5 +1,5 @@
+using _Game.Character;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 public class BattleSocket : MonoBehaviour
 {
