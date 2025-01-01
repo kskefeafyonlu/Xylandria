@@ -1,16 +1,44 @@
+using System;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static BattleManager Instance;
+
+    public BattleMap CurrentBattleMap;
+    
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        if (CurrentBattleMap == null) //Try to get the battle map if it is not set
+        {
+            TryGetBattleMap();
+        }
+    }
+
+    
+    
+    private void TryGetBattleMap()
+    {
+        if (CurrentBattleMap == null)
+        {
+            CurrentBattleMap = FindObjectOfType<BattleMap>();
+        }
+    }
+    
+    public void SetBattleMap(BattleMap battleMap)
+    {
+        CurrentBattleMap = battleMap;
     }
 }
