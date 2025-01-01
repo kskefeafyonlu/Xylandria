@@ -33,7 +33,7 @@ public class BattleManager : MonoBehaviour
     {
         if (CurrentBattleMap == null)
         {
-            CurrentBattleMap = FindObjectOfType<BattleMap>();
+            CurrentBattleMap = FindFirstObjectByType<BattleMap>();
         }
     }
     
